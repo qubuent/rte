@@ -57,7 +57,15 @@ angular.module('richTextEditorModule', ['ngSanitize'])
 		
 		editor.addEventListener('input', function(){
 			let pageElements = document.querySelectorAll('div[contenteditable]');
-			let cursorPosition = getCaretPosition(this)
+			
+			var range = document.createRange();
+			var sel = window.getSelection();
+/*			range.setStart(el.childNodes[2], 5);
+			range.collapse(true);
+			sel.removeAllRanges();
+			sel.addRange(range);*/
+			
+			
 			paginate(pageElements, scope);
 			scope.$apply();
 			//localStorage.setItem('editor', editor.innerHTML);
